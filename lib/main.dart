@@ -5,6 +5,7 @@ import 'package:mobileowner/splashscreen/splashscreen.dart';
 import 'package:mobileowner/utils/app_theme.dart';
 
 import 'Homepage/pages/homepage.dart';
+import 'Profile/Pages/settings/employeelist.dart';
 import 'Profile/Pages/settings/profile.dart';
 import 'auth/phoneverify/pages/phoneverify.dart';
 import 'auth/phoneverify/pages/receiveotp.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       // ),
       theme: AppTheme.lightTheme,
 
-      home: ProfileScreen(),
+      home: EmployeeList(),
     );
   }
 }
