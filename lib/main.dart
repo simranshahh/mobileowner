@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:mobileowner/splashscreen/splashscreen.dart';
 import 'package:mobileowner/utils/app_theme.dart';
 
+import 'Homepage/pages/homepage.dart';
+import 'Profile/Pages/settings/profile.dart';
 import 'auth/phoneverify/pages/phoneverify.dart';
+import 'auth/phoneverify/pages/receiveotp.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
       // ),
       theme: AppTheme.lightTheme,
 
-      home: PhoneVerify(),
+      home: ProfileScreen(),
     );
   }
 }

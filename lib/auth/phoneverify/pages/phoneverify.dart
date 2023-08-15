@@ -70,7 +70,7 @@ class _PhoneVerifyState extends State<PhoneVerify> {
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        //Navigator.pushNamed(context, '/receiveotp');
+                        // Navigator.pushNamed(context, '/receiveotp');
                         // getDeviceToken();
                         // String? deviceToken =
                         //     await getDeviceToken();
