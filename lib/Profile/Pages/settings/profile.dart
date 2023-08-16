@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:mobileowner/Profile/Pages/settings/profile_menu.dart';
 import 'package:mobileowner/utils/color_constants.dart';
 
+import '../../../utils/size_config.dart';
+
 class ProfileScreen extends StatefulWidget {
   ProfileScreen({super.key});
 
@@ -26,7 +28,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 60),
+            padding: EdgeInsets.only(
+              top: displayHeight(context) * 0.08,
+            ),
             child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -37,7 +41,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 )),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 120.0),
+            padding: EdgeInsets.only(
+              top: displayHeight(context) * 0.18,
+            ),
             child: Container(
               height: height,
               width: width,
@@ -51,7 +57,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 160),
+            padding: EdgeInsets.only(
+              top: displayHeight(context) * 0.2,
+            ),
             child: Column(
               children: [
                 //ProfilePic(),
@@ -59,7 +67,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Expanded(
                   child: SingleChildScrollView(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: displayHeight(context) * 0.02,
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -81,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             text: "Employee List",
                             icon: Icons.message,
                             press: () {
-                              // Navigator.pushNamed(context, '/faq');
+                              Navigator.pushNamed(context, '/employeelist');
                             },
                           ),
                           ProfileMenu(
@@ -114,8 +124,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           //         context, '/faq');
                           //   },
                           // ),
-                          const Divider(
-                            height: 40,
+                          Divider(
+                            height: displayHeight(context) * 0.03,
                             thickness: 1,
                           ),
                           ProfileMenu(

@@ -13,6 +13,16 @@ class EmployeeList extends StatefulWidget {
   State<EmployeeList> createState() => _EmployeeListState();
 }
 
+TextEditingController valuectrl = TextEditingController();
+
+String _value = "Sinamangal, Kathmandu";
+
+var items = [
+  "Sinamangal, Kathmandu",
+  "Gwarko, Lalitpur",
+  "Satobato, Lalitpur",
+];
+
 class _EmployeeListState extends State<EmployeeList> {
   @override
   Widget build(BuildContext context) {
@@ -26,7 +36,7 @@ class _EmployeeListState extends State<EmployeeList> {
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 60),
+            padding: EdgeInsets.only(top: displayHeight(context) * 0.07),
             child: Row(
               children: [
                 IconButton(
@@ -55,7 +65,7 @@ class _EmployeeListState extends State<EmployeeList> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 120.0),
+            padding: EdgeInsets.only(top: displayHeight(context) * 0.18),
             child: Container(
               height: height,
               width: width,
@@ -69,7 +79,7 @@ class _EmployeeListState extends State<EmployeeList> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 160),
+            padding: EdgeInsets.only(top: displayHeight(context) * 0.22),
             child: Column(
               children: [
                 //ProfilePic(),
@@ -77,11 +87,13 @@ class _EmployeeListState extends State<EmployeeList> {
                 Expanded(
                   child: SingleChildScrollView(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: displayHeight(context) * 0.02),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           TextField(
+                            controller: valuectrl,
                             onChanged: (searchTerm) {
                               // _performSearch(searchTerm);
                             },
@@ -118,21 +130,266 @@ class _EmployeeListState extends State<EmployeeList> {
                               ),
                             ),
                           ),
-                          Card(
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage('assets/profile.png'),
-                                ),
-                                Column(
-                                  children: [
-                                    Text('Anina Maharjan'),
-                                    Text('Putalisadak Branch'),
-                                  ],
-                                ),
-                                Text('Transfer'),
-                              ],
+                          SizedBox(
+                            height: displayHeight(context),
+                            child: ListView.builder(
+                              itemBuilder: (context, index) {
+                                return SizedBox(
+                                  height: displayHeight(context) * 0.12,
+                                  width: displayWidth(context) * 0.18,
+                                  child: InkWell(
+                                    onTap: () {
+                                      showDialog<String>(
+                                        context: context,
+                                        builder: (BuildContext context) =>
+                                            SizedBox(
+                                          width: displayWidth(context) * 0.9,
+                                          child: AlertDialog(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(
+                                                  18,
+                                                ),
+                                              ),
+                                            ),
+                                            title: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: displayWidth(
+                                                              context) *
+                                                          0.6),
+                                                  child: IconButton(
+                                                      onPressed: () {},
+                                                      icon: Icon(Icons.close)),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      'Transfer:',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall!
+                                                          .copyWith(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400),
+                                                    ),
+                                                    Text(
+                                                      ' Anina Maharjan',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall!
+                                                          .copyWith(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height:
+                                                      displayHeight(context) *
+                                                          0.01,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      'From:',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall!
+                                                          .copyWith(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400),
+                                                    ),
+                                                    Text(
+                                                      ' Kunpondol,Lalitpur',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall!
+                                                          .copyWith(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height:
+                                                      displayHeight(context) *
+                                                          0.01,
+                                                ),
+                                                Text(
+                                                  'To:',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodySmall!
+                                                      .copyWith(
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Row(
+                                                      children: <Widget>[
+                                                        Expanded(
+                                                          child: SizedBox(
+                                                            width: displayWidth(
+                                                                    context) *
+                                                                2,
+                                                            child:
+                                                                TextFormField(
+                                                                    readOnly:
+                                                                        true,
+                                                                    style: Theme.of(
+                                                                            context)
+                                                                        .textTheme
+                                                                        .headlineMedium!
+                                                                        .copyWith(
+                                                                            fontWeight: FontWeight
+                                                                                .w400),
+                                                                    // onSaved: (input) => gender = input,
+                                                                    controller:
+                                                                        valuectrl,
+                                                                    decoration:
+                                                                        InputDecoration(
+                                                                      hintText:
+                                                                          'Gender',
+                                                                      suffixIcon:
+                                                                          PopupMenuButton<
+                                                                              String>(
+                                                                        icon:
+                                                                            const Icon(
+                                                                          Icons
+                                                                              .arrow_drop_down,
+                                                                          color:
+                                                                              Colors.white,
+                                                                        ),
+                                                                        onSelected:
+                                                                            (String
+                                                                                value) {
+                                                                          valuectrl.text =
+                                                                              value;
+                                                                        },
+                                                                        itemBuilder:
+                                                                            (BuildContext
+                                                                                context) {
+                                                                          return items.map<PopupMenuItem<String>>((String
+                                                                              value) {
+                                                                            return PopupMenuItem(
+                                                                                value: value,
+                                                                                child: Text(value));
+                                                                          }).toList();
+                                                                        },
+                                                                      ),
+                                                                    )),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      height: displayHeight(
+                                                              context) *
+                                                          0.05,
+                                                    ),
+                                                    Center(
+                                                      child: ElevatedButton(
+                                                        onPressed: () {},
+                                                        child: const Text(
+                                                          'Confirm',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    child: Card(
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                          top: displayHeight(context) * 0.02,
+                                        ),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            CircleAvatar(
+                                              backgroundImage: AssetImage(
+                                                'assets/profile.png',
+                                              ),
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Text(
+                                                  'Anina Maharjan',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyLarge!
+                                                      .copyWith(
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.w600),
+                                                ),
+                                                Text(
+                                                  'Putalisadak Branch',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodySmall!
+                                                      .copyWith(
+                                                          color: Colors.grey,
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
+                                            Center(
+                                              child: Text(
+                                                'Transfer',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodySmall!
+                                                    .copyWith(
+                                                        color: ColorConstant
+                                                            .primary,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
                           )
                         ],

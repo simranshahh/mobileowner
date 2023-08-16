@@ -100,14 +100,19 @@ class _SignupPageState extends State<SignupPage> {
                             decoration: TextDecoration.underline,
                           ),
                         ),
-                        onTap: () async {
-                          String url = 'https://maps.google.com';
-                          if (await canLaunch(url)) {
-                            await launch(url);
-                          } else {
-                            throw 'Could not launch $url';
-                          }
-                        }),
+                        onTap: () {
+                          launchMap();
+                        }
+                        //  async
+                        //  {
+                        //   String url = 'https://maps.google.com';
+                        //   if (await canLaunch(url)) {
+                        //     await launch(url);
+                        //   } else {
+                        //     throw 'Could not launch $url';
+                        //   }
+                        // }
+                        ),
                   ),
                   SizedBox(
                     height: displayWidth(context) * 0.03,
@@ -201,5 +206,14 @@ class _SignupPageState extends State<SignupPage> {
             ),
           )),
     );
+  }
+}
+
+void launchMap() async {
+  String query = Uri.encodeComponent('biratnagar');
+  String googleUrl = "https://www.google.com/maps/search/?api=1&query=$query";
+
+  if (await canLaunch(googleUrl)) {
+    await launch(googleUrl);
   }
 }
