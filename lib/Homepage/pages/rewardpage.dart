@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unused_field
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/color_constants.dart';
 
@@ -17,21 +18,16 @@ class _RewardPageState extends State<RewardPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
 
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: width / 20),
-          child: Row(
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(
-                    width * 0.02, width * 0.02, 0, width * 0.02),
-                child: Text('Alphabetic',
-                    style: Theme.of(context).textTheme.headlineLarge),
-              ),
+              Text('Alphabetic',
+                  style: Theme.of(context).textTheme.headlineLarge),
               IconButton(
                 // key: _filterButtonKey,
                 onPressed: () {},
@@ -39,10 +35,8 @@ class _RewardPageState extends State<RewardPage> {
               ),
             ],
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: TextField(
+          24.verticalSpace,
+          TextField(
             onChanged: (searchTerm) {
               // _performSearch(searchTerm);
             },
@@ -57,8 +51,9 @@ class _RewardPageState extends State<RewardPage> {
                 borderRadius: BorderRadius.circular(30),
               ),
               hintText: "Search",
+              hintStyle: TextStyle(color: Colors.black),
               filled: false,
-              fillColor: const Color(0xfff1f1f1),
+              fillColor: Colors.white,
               contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -74,13 +69,9 @@ class _RewardPageState extends State<RewardPage> {
               ),
             ),
           ),
-        ),
-        SizedBox(
-          height: 12,
-        ),
-        Expanded(
-          child: SizedBox(
-            height: height * 0.5,
+          12.verticalSpace,
+          SizedBox(
+            height: 60.h,
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -95,8 +86,8 @@ class _RewardPageState extends State<RewardPage> {
                   children: [
                     Image.asset('assets/cafe1.png'),
                     SizedBox(
-                        // width: 8,
-                        ),
+                      width: 8.w,
+                    ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,14 +96,14 @@ class _RewardPageState extends State<RewardPage> {
                             style: Theme.of(context)
                                 .textTheme
                                 .headlineSmall!
-                                .copyWith(color: ColorConstant.primary)),
+                                .copyWith(color: ColorConstant.buttoncolor)),
                         Text('hi',
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
                                 .copyWith(
                                     fontWeight: FontWeight.w400,
-                                    color: ColorConstant.paleblue))
+                                    color: ColorConstant.greytext))
                       ],
                     ),
                     Spacer(),
@@ -120,14 +111,14 @@ class _RewardPageState extends State<RewardPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text('Reward Points',
+                        Text('Awarded Points',
                             textAlign: TextAlign.center,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
                                 .copyWith(
                                     fontWeight: FontWeight.w500,
-                                    color: ColorConstant.paleblue)),
+                                    color: ColorConstant.greytext)),
                         Row(
                           children: [
                             Image.asset(
@@ -151,8 +142,8 @@ class _RewardPageState extends State<RewardPage> {
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

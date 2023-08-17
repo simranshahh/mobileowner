@@ -1,12 +1,15 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:mobileowner/utils/text_constants.dart';
 import 'package:mobileowner/utils/textfield.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../utils/color_constants.dart';
 import '../../../utils/size_config.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -34,33 +37,16 @@ class _SignupPageState extends State<SignupPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const Center(
-                    child: Text(
-                      'Welcome to loyalty App',
-                      textScaleFactor: 1,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 24),
-                    ),
-                  ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.1,
-                  ),
                   Center(
-                    child: Text(
-                      'Register your Company ',
-                      style: TextStyle(
-                          color: ColorConstant.bluesub,
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 12),
-                    ),
+                    child: Text('Welcome to loyalty App',
+                        textScaleFactor: 1, style: AppStyles.text24PxSemiBold),
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.12,
+                  40.verticalSpace,
+                  Center(
+                    child: Text('Register your Company',
+                        style: AppStyles.text12PxSemiBold),
                   ),
+                  40.verticalSpace,
                   CustomTextFormField(
                     hintText: 'Company Name',
                     // onSaved: (input) => contact = input,
@@ -68,9 +54,7 @@ class _SignupPageState extends State<SignupPage> {
                         [FormBuilderValidators.required()]),
                     obscureText: false,
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.03,
-                  ),
+                  12.verticalSpace,
                   CustomTextFormField(
                     hintText: 'Email',
                     // onSaved: (input) => contact = input,
@@ -78,9 +62,7 @@ class _SignupPageState extends State<SignupPage> {
                         [FormBuilderValidators.required()]),
                     obscureText: false,
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.03,
-                  ),
+                  12.verticalSpace,
                   CustomTextFormField(
                     hintText: 'Map Location',
                     // onSaved: (input) => contact = input,
@@ -90,13 +72,13 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                      left: displayWidth(context) * 0.25,
-                    ),
+                        left: displayWidth(context) * 0.25, top: 4),
                     child: InkWell(
                         child: Text(
                           'Click here for map location setup guide',
                           style: TextStyle(
                             color: Colors.white,
+                            fontWeight: FontWeight.w400,
                             decoration: TextDecoration.underline,
                           ),
                         ),
@@ -114,9 +96,7 @@ class _SignupPageState extends State<SignupPage> {
                         // }
                         ),
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.03,
-                  ),
+                  12.verticalSpace,
                   CustomTextFormField(
                     hintText: 'Mobile Number',
                     // onSaved: (input) => contact = input,
@@ -124,9 +104,7 @@ class _SignupPageState extends State<SignupPage> {
                         [FormBuilderValidators.required()]),
                     obscureText: false,
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.03,
-                  ),
+                  12.verticalSpace,
                   CustomTextFormField(
                     hintText: 'Password',
                     // onSaved: (input) => contact = input,
@@ -134,9 +112,7 @@ class _SignupPageState extends State<SignupPage> {
                         [FormBuilderValidators.required()]),
                     obscureText: false,
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.03,
-                  ),
+                  12.verticalSpace,
                   CustomTextFormField(
                     hintText: 'Confirm Password',
                     // onSaved: (input) => contact = input,
@@ -144,19 +120,10 @@ class _SignupPageState extends State<SignupPage> {
                         [FormBuilderValidators.required()]),
                     obscureText: false,
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.03,
-                  ),
+                  12.verticalSpace,
                   CheckboxListTile(
-                    title: Text(
-                      'Remember me',
-                      style: TextStyle(
-                        color: ColorConstant.bluesub,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                      ),
-                    ),
+                    title: Text('Remember me',
+                        style: AppStyles.text14PxMediumBluesub),
                     value: rememberMe,
                     onChanged: (bool? newValue) {
                       setState(() {
@@ -164,17 +131,15 @@ class _SignupPageState extends State<SignupPage> {
                       });
                     },
                     controlAffinity: ListTileControlAffinity.leading,
-                    activeColor: ColorConstant.buttoncolor,
-                    checkColor: Colors.white,
+                    activeColor: Colors.white,
+                    checkColor: Colors.black,
                     checkboxShape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
                     ),
                     dense: true,
                     contentPadding: EdgeInsets.zero,
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.03,
-                  ),
+                  12.verticalSpace,
                   SizedBox(
                     child: Center(
                       child: ElevatedButton(

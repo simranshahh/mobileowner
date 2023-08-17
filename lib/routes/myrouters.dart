@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:mobileowner/Homepage/pages/homepage.dart';
 import 'package:mobileowner/auth/signup/pages/signup.dart';
 
 import '../Profile/Pages/settings/employeelist.dart';
@@ -19,6 +20,8 @@ class MyRoutes {
         return MaterialPageRoute(builder: (context) => ReceiveOTP());
       case '/employeelist':
         return MaterialPageRoute(builder: (context) => EmployeeList());
+      case '/homepage':
+        return MaterialPageRoute(builder: (context) => HomePage());
       default:
         return null;
     }

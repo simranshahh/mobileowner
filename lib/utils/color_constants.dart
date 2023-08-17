@@ -9,4 +9,5 @@ class ColorConstant {
   static Color bluesub = Color(0xffE0EAF5);
   static Color checkbox = Color(0xffE8E8E8);
   static Color bg = Color(0xffF4F9F4);
+  static Color greytext = Color(0xff9CA5AF);
 }
