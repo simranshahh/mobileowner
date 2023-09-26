@@ -50,7 +50,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   Center(
                     child: Text(
-                      'Register your Company ',
+                      'Enter Your Details ',
                       style: TextStyle(
                           color: ColorConstant.bluesub,
                           fontFamily: 'Montserrat',
@@ -62,7 +62,7 @@ class _SignupPageState extends State<SignupPage> {
                     height: displayWidth(context) * 0.12,
                   ),
                   CustomTextFormField(
-                    hintText: 'Company Name',
+                    hintText: 'Name',
                     // onSaved: (input) => contact = input,
                     validator: FormBuilderValidators.compose(
                         [FormBuilderValidators.required()]),
@@ -81,44 +81,44 @@ class _SignupPageState extends State<SignupPage> {
                   SizedBox(
                     height: displayWidth(context) * 0.03,
                   ),
+                  // CustomTextFormField(
+                  //   hintText: 'Map Location',
+                  //   // onSaved: (input) => contact = input,
+                  //   validator: FormBuilderValidators.compose(
+                  //       [FormBuilderValidators.required()]),
+                  //   obscureText: false,
+                  // ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(
+                  //     left: displayWidth(context) * 0.25,
+                  //   ),
+                  //   child: InkWell(
+                  //       child: Text(
+                  //         'Click here for map location setup guide',
+                  //         style: TextStyle(
+                  //           color: Colors.white,
+                  //           decoration: TextDecoration.underline,
+                  //         ),
+                  //       ),
+                  //       onTap: () {
+                  //         launchMap();
+                  //       }
+                  //       //  async
+                  //       //  {
+                  //       //   String url = 'https://maps.google.com';
+                  //       //   if (await canLaunch(url)) {
+                  //       //     await launch(url);
+                  //       //   } else {
+                  //       //     throw 'Could not launch $url';
+                  //       //   }
+                  //       // }
+                  //       ),
+                  // ),
+                  // SizedBox(
+                  //   height: displayWidth(context) * 0.03,
+                  // ),
                   CustomTextFormField(
-                    hintText: 'Map Location',
-                    // onSaved: (input) => contact = input,
-                    validator: FormBuilderValidators.compose(
-                        [FormBuilderValidators.required()]),
-                    obscureText: false,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: displayWidth(context) * 0.25,
-                    ),
-                    child: InkWell(
-                        child: Text(
-                          'Click here for map location setup guide',
-                          style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                        onTap: () {
-                          launchMap();
-                        }
-                        //  async
-                        //  {
-                        //   String url = 'https://maps.google.com';
-                        //   if (await canLaunch(url)) {
-                        //     await launch(url);
-                        //   } else {
-                        //     throw 'Could not launch $url';
-                        //   }
-                        // }
-                        ),
-                  ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.03,
-                  ),
-                  CustomTextFormField(
-                    hintText: 'Mobile Number',
+                    hintText: 'Contact Number',
                     // onSaved: (input) => contact = input,
                     validator: FormBuilderValidators.compose(
                         [FormBuilderValidators.required()]),
@@ -196,7 +196,7 @@ class _SignupPageState extends State<SignupPage> {
                           Navigator.pushNamed(context, '/phoneverify');
                         },
                         child: Text(
-                          'Signup',
+                          'Register',
                         ),
                       ),
                     ),

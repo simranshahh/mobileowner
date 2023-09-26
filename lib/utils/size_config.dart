@@ -12,3 +12,10 @@ double displayHeight(BuildContext context) {
 double displayWidth(BuildContext context) {
   return displaySize(context).width;
 }
+
+double setWidth(num value, BuildContext context) {
+  return displaySize(context).width * (value / 375);
+}
+
+double setHeight(num value, BuildContext context) =>
+    displaySize(context).height * (value / 812);

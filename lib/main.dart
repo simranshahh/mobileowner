@@ -5,6 +5,9 @@ import 'package:mobileowner/Profile/Pages/settings/employeelist.dart';
 
 import 'package:mobileowner/utils/app_theme.dart';
 
+import 'auth/signup/pages/Phonenoverification/otpinputpage.dart';
+import 'auth/signup/pages/Phonenoverification/verifyphone.dart';
+import 'auth/signup/pages/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
       // ),
       theme: AppTheme.lightTheme,
 
-      home: EmployeeList(),
+      home: OtpInputPage(),
     );
   }
 }

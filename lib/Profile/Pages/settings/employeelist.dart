@@ -1,6 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print, prefer_const_constructors_in_immutables, use_build_context_synchronously, unused_element, dead_code, unnecessary_null_comparison
-
-// import 'dart:js';
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
 import 'package:mobileowner/utils/color_constants.dart';
@@ -15,8 +13,6 @@ class EmployeeList extends StatefulWidget {
 
 TextEditingController valuectrl = TextEditingController();
 
-String _value = "Sinamangal, Kathmandu";
-
 var items = [
   "Sinamangal, Kathmandu",
   "Gwarko, Lalitpur",
@@ -26,9 +22,6 @@ var items = [
 class _EmployeeListState extends State<EmployeeList> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
-
     return SafeArea(
         child: Scaffold(
       resizeToAvoidBottomInset: false,
@@ -67,8 +60,8 @@ class _EmployeeListState extends State<EmployeeList> {
           Padding(
             padding: EdgeInsets.only(top: displayHeight(context) * 0.18),
             child: Container(
-              height: height,
-              width: width,
+              height: displayHeight(context),
+              width: displayWidth(context),
               decoration: BoxDecoration(
                 color: ColorConstant.bg,
                 borderRadius: BorderRadius.only(
@@ -82,8 +75,6 @@ class _EmployeeListState extends State<EmployeeList> {
             padding: EdgeInsets.only(top: displayHeight(context) * 0.22),
             child: Column(
               children: [
-                //ProfilePic(),
-
                 Expanded(
                   child: SingleChildScrollView(
                     child: Padding(
@@ -94,9 +85,7 @@ class _EmployeeListState extends State<EmployeeList> {
                         children: [
                           TextField(
                             controller: valuectrl,
-                            onChanged: (searchTerm) {
-                              // _performSearch(searchTerm);
-                            },
+                            onChanged: (searchTerm) {},
                             cursorColor: ColorConstant.primary,
                             decoration: InputDecoration(
                               disabledBorder: OutlineInputBorder(
@@ -131,7 +120,7 @@ class _EmployeeListState extends State<EmployeeList> {
                             ),
                           ),
                           SizedBox(
-                            height: displayHeight(context),
+                            height: displayHeight(context), 
                             child: ListView.builder(
                               itemBuilder: (context, index) {
                                 return SizedBox(
