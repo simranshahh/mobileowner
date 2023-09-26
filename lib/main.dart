@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobileowner/Profile/Pages/settings/employeelist.dart';
 import 'package:mobileowner/auth/signup/pages/signup.dart';
 
 import 'package:mobileowner/utils/app_theme.dart';

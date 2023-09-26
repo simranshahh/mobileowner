@@ -30,7 +30,7 @@ class _OtpInputPageState extends State<OtpInputPage> {
   final TextEditingController _fieldTwo = TextEditingController();
   final TextEditingController _fieldThree = TextEditingController();
   final TextEditingController _fieldFour = TextEditingController();
-  String _otp = "";
+  // String _otp = "";
   @override
   initState() {
     super.initState();

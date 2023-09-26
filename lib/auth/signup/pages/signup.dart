@@ -9,7 +9,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../utils/color_constants.dart';
 import '../../../utils/size_config.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -43,12 +42,12 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   40.verticalSpace,
                   Center(
-                    child: Text('Register your Company',
+                    child: Text('Enter Your Details',
                         style: AppStyles.text12PxSemiBold),
                   ),
                   40.verticalSpace,
                   CustomTextFormField(
-                    hintText: 'Company Name',
+                    hintText: 'Name',
                     // onSaved: (input) => contact = input,
                     validator: FormBuilderValidators.compose(
                         [FormBuilderValidators.required()]),
@@ -64,41 +63,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   12.verticalSpace,
                   CustomTextFormField(
-                    hintText: 'Map Location',
-                    // onSaved: (input) => contact = input,
-                    validator: FormBuilderValidators.compose(
-                        [FormBuilderValidators.required()]),
-                    obscureText: false,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: displayWidth(context) * 0.25, top: 4),
-                    child: InkWell(
-                        child: Text(
-                          'Click here for map location setup guide',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                        onTap: () {
-                          launchMap();
-                        }
-                        //  async
-                        //  {
-                        //   String url = 'https://maps.google.com';
-                        //   if (await canLaunch(url)) {
-                        //     await launch(url);
-                        //   } else {
-                        //     throw 'Could not launch $url';
-                        //   }
-                        // }
-                        ),
-                  ),
-                  12.verticalSpace,
-                  CustomTextFormField(
-                    hintText: 'Mobile Number',
+                    hintText: 'Contact Number',
                     // onSaved: (input) => contact = input,
                     validator: FormBuilderValidators.compose(
                         [FormBuilderValidators.required()]),
@@ -161,7 +126,7 @@ class _SignupPageState extends State<SignupPage> {
                           Navigator.pushNamed(context, '/phoneverify');
                         },
                         child: Text(
-                          'Signup',
+                          'Register',
                         ),
                       ),
                     ),

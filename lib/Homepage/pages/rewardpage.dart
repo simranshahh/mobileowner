@@ -17,8 +17,6 @@ class _RewardPageState extends State<RewardPage> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
