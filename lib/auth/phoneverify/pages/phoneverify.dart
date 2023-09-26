@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:mobileowner/utils/color_constants.dart';
+import 'package:mobileowner/utils/text_constants.dart';
 
 import '../../../utils/size_config.dart';
 import '../../../utils/textfield.dart';
@@ -22,8 +24,8 @@ class _PhoneVerifyState extends State<PhoneVerify> {
         backgroundColor: ColorConstant.primary,
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: displayWidth(context) * 0.03,
-            vertical: displayWidth(context) * 0.06,
+            horizontal: 20.w,
+            vertical: 12.h,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,23 +42,13 @@ class _PhoneVerifyState extends State<PhoneVerify> {
               Column(
                 children: [
                   Text("  Phone no Verification",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white)),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: displayWidth(context) * 0.03,
-                      top: displayWidth(context) * 0.08,
-                    ),
-                    child: Text(
-                      "Verify your phone no for secure access",
-                      style: TextStyle(color: Colors.white),
-                    ),
+                      style: AppStyles.text24PxSemiBold),
+                  40.verticalSpace,
+                  Text(
+                    "Verify your phone no for secure access",
+                    style: AppStyles.text12PxSemiBold,
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.2,
-                  ),
+                  40.verticalSpace,
                   CustomTextFormField(
                     hintText: 'Phone Number',
                     // onSaved: (input) => contact = input,
@@ -64,13 +56,11 @@ class _PhoneVerifyState extends State<PhoneVerify> {
                         [FormBuilderValidators.required()]),
                     obscureText: false,
                   ),
-                  SizedBox(
-                    height: displayWidth(context) * 0.12,
-                  ),
+                  32.verticalSpace,
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        // Navigator.pushNamed(context, '/receiveotp');
+                        Navigator.pushNamed(context, '/homepage');
                         // getDeviceToken();
                         // String? deviceToken =
                         //     await getDeviceToken();
