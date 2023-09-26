@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           theme: AppTheme.lightTheme,
           onGenerateRoute: MyRoutes.generatedRoutes,
-          initialRoute: '/signup',
+          initialRoute: '/homepage',
           home: SignupPage(),
         );
       },

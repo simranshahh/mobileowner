@@ -5,8 +5,10 @@ import 'package:mobileowner/Homepage/pages/homepage.dart';
 import 'package:mobileowner/auth/signup/pages/signup.dart';
 
 import '../Profile/Pages/settings/employeelist.dart';
+import '../Profile/Pages/settings/profile.dart';
 import '../auth/phoneverify/pages/phoneverify.dart';
 import '../auth/phoneverify/pages/receiveotp.dart';
+import '../auth/signup/pages/CompanyRegister/companyregisterpage.dart';
 
 class MyRoutes {
   static Route<dynamic>? generatedRoutes(RouteSettings settings) {
@@ -22,6 +24,10 @@ class MyRoutes {
         return MaterialPageRoute(builder: (context) => EmployeeList());
       case '/homepage':
         return MaterialPageRoute(builder: (context) => HomePage());
+      case '/companyregister':
+        return MaterialPageRoute(builder: (context) => CompanyRegister());
+      case '/profile':
+        return MaterialPageRoute(builder: (context) => ProfileScreen());
       default:
         return null;
     }

@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:mobileowner/utils/text_constants.dart';
 import 'package:mobileowner/utils/textfield.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../utils/color_constants.dart';
 import '../../../utils/size_config.dart';
@@ -139,11 +138,11 @@ class _SignupPageState extends State<SignupPage> {
   }
 }
 
-void launchMap() async {
-  String query = Uri.encodeComponent('biratnagar');
-  String googleUrl = "https://www.google.com/maps/search/?api=1&query=$query";
+// void launchMap() async {
+//   String query = Uri.encodeComponent('biratnagar');
+//   String googleUrl = "https://www.google.com/maps/search/?api=1&query=$query";
 
-  if (await canLaunch(googleUrl)) {
-    await launch(googleUrl);
-  }
-}
+//   if (await canLaunch(googleUrl)) {
+//     await launch(googleUrl);
+//   }
+// }

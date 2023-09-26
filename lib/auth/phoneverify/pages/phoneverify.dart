@@ -6,7 +6,6 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:mobileowner/utils/color_constants.dart';
 import 'package:mobileowner/utils/text_constants.dart';
 
-import '../../../utils/size_config.dart';
 import '../../../utils/textfield.dart';
 
 class PhoneVerify extends StatefulWidget {

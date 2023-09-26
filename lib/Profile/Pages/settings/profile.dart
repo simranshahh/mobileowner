@@ -3,6 +3,7 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobileowner/Profile/Pages/settings/profile_menu.dart';
 import 'package:mobileowner/utils/color_constants.dart';
 
@@ -29,16 +30,42 @@ class _ProfileScreenState extends State<ProfileScreen> {
         children: [
           Padding(
             padding: EdgeInsets.only(
-              top: displayHeight(context) * 0.08,
+              top: 50.h,
             ),
-            child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                )),
+            child: Row(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    )),
+                200.horizontalSpace,
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/profile.png'),
+                ),
+                10.horizontalSpace,
+                InkWell(
+                  child: Container(
+                    width: displayWidth(context) * 0.12,
+                    height: displayHeight(context) * 0.08,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xffE0EAF5),
+                    ),
+                    child: const Icon(
+                      Icons.notification_important,
+                      color: Color(0xff5889c7),
+                    ),
+                  ),
+                  onTap: () {
+                    // Navigator.pushNamed(context, '/notificationpage');
+                  },
+                ),
+              ],
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(

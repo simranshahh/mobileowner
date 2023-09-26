@@ -120,7 +120,7 @@ class _EmployeeListState extends State<EmployeeList> {
                             ),
                           ),
                           SizedBox(
-                            height: displayHeight(context), 
+                            height: displayHeight(context),
                             child: ListView.builder(
                               itemBuilder: (context, index) {
                                 return SizedBox(
@@ -133,6 +133,7 @@ class _EmployeeListState extends State<EmployeeList> {
                                         builder: (BuildContext context) =>
                                             SizedBox(
                                           width: displayWidth(context) * 0.9,
+                                          height: displayHeight(context) * 0.9,
                                           child: AlertDialog(
                                             shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.all(
