@@ -6,6 +6,7 @@ import 'package:mobileowner/auth/signup/pages/signup.dart';
 
 import '../Profile/Pages/settings/employeelist.dart';
 import '../Profile/Pages/settings/profile.dart';
+import '../auth/Login/pages/login.dart';
 import '../auth/phoneverify/pages/phoneverify.dart';
 import '../auth/phoneverify/pages/receiveotp.dart';
 import '../auth/signup/pages/CompanyRegister/companyregisterpage.dart';
@@ -16,6 +17,8 @@ class MyRoutes {
     switch (settings.name) {
       case '/signup':
         return MaterialPageRoute(builder: (context) => SignupPage());
+      case '/login':
+        return MaterialPageRoute(builder: (context) => LoginPage());
       case '/phoneverify':
         return MaterialPageRoute(builder: (context) => PhoneVerify());
       case '/receiveotp':

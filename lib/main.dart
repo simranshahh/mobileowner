@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobileowner/auth/signup/pages/signup.dart';
 
 import 'package:mobileowner/utils/app_theme.dart';
 
+import 'auth/Login/pages/login.dart';
 import 'routes/myrouters.dart';
 
 void main() {
@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           theme: AppTheme.lightTheme,
           onGenerateRoute: MyRoutes.generatedRoutes,
-          initialRoute: '/homepage',
-          home: SignupPage(),
+          initialRoute: '/login',
+          home: LoginPage(),
         );
       },
     );
