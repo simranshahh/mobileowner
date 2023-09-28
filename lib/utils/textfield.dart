@@ -5,14 +5,18 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final FormFieldValidator<String>? validator;
   final bool obscureText;
+  final TextInputType? keyboardType;
+  final Widget? suffixIcon;
 
-  const CustomTextFormField({
-    Key? key,
-    this.hintText,
-    this.onSaved,
-    this.validator,
-    this.obscureText = false,
-  }) : super(key: key);
+  const CustomTextFormField(
+      {Key? key,
+      this.hintText,
+      this.onSaved,
+      this.keyboardType,
+      this.validator,
+      this.obscureText = false,
+      this.suffixIcon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,8 @@ class CustomTextFormField extends StatelessWidget {
       textInputAction: TextInputAction.next,
       validator: validator,
       obscureText: obscureText,
-      decoration: InputDecoration(hintText: hintText),
+      decoration: InputDecoration(hintText: hintText, suffixIcon: suffixIcon),
+      keyboardType: keyboardType,
     );
   }
 }
