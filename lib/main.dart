@@ -1,7 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mobileowner/auth/Login/Bloc/authentication_cubit.dart';
+import 'package:mobileowner/graphql/garphql_provider.dart';
 
 import 'package:mobileowner/utils/app_theme.dart';
 
@@ -18,17 +22,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(360, 690),
-      minTextAdapt: true,
-      builder: (context, child) {
-        return MaterialApp(
-          theme: AppTheme.lightTheme,
-          onGenerateRoute: MyRoutes.generatedRoutes,
-          initialRoute: '/login',
-          home: LoginPage(),
-        );
-      },
+    return GraphQLProvider(
+      client: client,
+      child: BlocProvider(
+        create: (context) => AuthenticationCubit(),
+        child: ScreenUtilInit(
+          designSize: const Size(360, 690),
+          minTextAdapt: true,
+          builder: (context, child) {
+            return MaterialApp(
+              theme: AppTheme.lightTheme,
+              onGenerateRoute: MyRoutes.generatedRoutes,
+              initialRoute: '/login',
+              home: LoginPage(),
+            );
+          },
+        ),
+      ),
     );
   }
 }
