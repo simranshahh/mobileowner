@@ -43,7 +43,6 @@ class _LoginPageState extends State<LoginPage> {
               } else if (state is AuthenticationError) {
                 print('error');
               }
-              // TODO: implement listener
             },
             builder: (context, state) {
               return Mutation<LoginMutationResponse>(

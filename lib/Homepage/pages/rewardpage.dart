@@ -1,8 +1,16 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unused_field
 
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mobileowner/Homepage/pages/rewardpage/mutation/rewardpage.dart';
+import 'package:mobileowner/Homepage/pages/rewardpage/rewardpagecard.dart';
+import 'package:mobileowner/utils/size_config.dart';
 
+import '../../graphql/garphql_provider.dart';
 import '../../utils/color_constants.dart';
 
 class RewardPage extends StatefulWidget {
@@ -14,6 +22,14 @@ class RewardPage extends StatefulWidget {
 
 class _RewardPageState extends State<RewardPage> {
   String _selectedOption = 'Option 1';
+  int _page = 0;
+  bool _hasNextPage = true;
+  bool _isFirstLoadRunning = false;
+  bool _isLoadMoreRunning = false;
+  List _posts = [];
+  List _foundmerchant = [];
+  late Timer _debounce = Timer(Duration.zero, () {});
+  late ScrollController _controller;
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +87,9 @@ class _RewardPageState extends State<RewardPage> {
           SizedBox(
             height: 60.h,
             child: ListView.builder(
+              itemCount: 5,
               itemBuilder: (context, index) {
-                Card(
+                return Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -99,7 +116,7 @@ class _RewardPageState extends State<RewardPage> {
                                     .headlineSmall!
                                     .copyWith(
                                         color: ColorConstant.buttoncolor)),
-                            Text('hi',
+                            Text('Date:2056/08/09',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
@@ -150,7 +167,70 @@ class _RewardPageState extends State<RewardPage> {
       ),
     );
   }
+
+  Widget buildCardList() {
+    return Expanded(
+      child: SizedBox(
+        height: displayHeight(context) * 0.05,
+        child: RefreshIndicator(
+          onRefresh: _getData,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: ListView.builder(
+              controller: _controller,
+              itemCount: _foundmerchant.length,
+              itemBuilder: (context, index) {
+                return RewardPageCard(
+                  merchantData: _foundmerchant[index],
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _firstLoad() async {
+    setState(() {
+      _isFirstLoadRunning = true;
+    });
+    try {
+      QueryResult result = await clientt.query(
+        QueryOptions(
+            document: redeempointquery,
+            variables: const {
+              "pageNumber": 0,
+            },
+            fetchPolicy: FetchPolicy.cacheAndNetwork),
+      );
+      _posts = result.data?['FindOwnerRewardLogs'];
+      setState(() {
+        _foundmerchant = _posts;
+      });
+    } catch (err) {
+      if (kDebugMode) {
+        print('Something went wrong from first load');
+      }
+    }
+    setState(() {
+      _isFirstLoadRunning = false;
+    });
+  }
+
+  Future<void> _getData() async {
+    setState(() {
+      _firstLoad();
+    });
+  }
 }
+//   Future<void> _getData() async {
+//     setState(() {
+//       _firstLoad();
+//     });
+//   }
+// }
+
 
   //   void _showPopupMenu() async {
   //   FocusScope.of(context).unfocus();
