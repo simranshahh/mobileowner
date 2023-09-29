@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:mobileowner/utils/size_config.dart';
 
 import '../../../utils/color_constants.dart';
 
@@ -29,8 +30,8 @@ class ProfileMenu extends StatelessWidget {
         onTap: press,
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 18,
+            horizontal: displayHeight(context) * 0.02,
+            vertical: displayHeight(context) * 0.022,
           ),
           child: Row(
             children: [

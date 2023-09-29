@@ -9,7 +9,7 @@ import 'package:mobileowner/graphql/garphql_provider.dart';
 
 import 'package:mobileowner/utils/app_theme.dart';
 
-import 'auth/Login/pages/login.dart';
+import 'Homepage/pages/homepage.dart';
 import 'routes/myrouters.dart';
 
 void main() {
@@ -33,8 +33,8 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               theme: AppTheme.lightTheme,
               onGenerateRoute: MyRoutes.generatedRoutes,
-              initialRoute: '/login',
-              home: LoginPage(),
+              initialRoute: '/homepage',
+              home: HomePage(),
             );
           },
         ),

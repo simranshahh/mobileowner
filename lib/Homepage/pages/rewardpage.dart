@@ -70,74 +70,80 @@ class _RewardPageState extends State<RewardPage> {
           12.verticalSpace,
           SizedBox(
             height: 60.h,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              elevation: 3,
-              shadowColor: Colors.black,
-              clipBehavior: Clip.antiAlias,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Image.asset('assets/cafe1.png'),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  elevation: 3,
+                  shadowColor: Colors.black,
+                  clipBehavior: Clip.antiAlias,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(' hi',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineSmall!
-                                .copyWith(color: ColorConstant.buttoncolor)),
-                        Text('hi',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                    fontWeight: FontWeight.w400,
-                                    color: ColorConstant.greytext))
-                      ],
-                    ),
-                    Spacer(),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text('Awarded Points',
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    color: ColorConstant.greytext)),
-                        Row(
+                        Image.asset('assets/cafe1.png'),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              'assets/coin.png',
-                              alignment: Alignment.center,
-                            ),
-                            // SizedBox(
-                            //   width: width * 0.01,
-                            // ),
+                            Text(' hi',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall!
+                                    .copyWith(
+                                        color: ColorConstant.buttoncolor)),
                             Text('hi',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
-                                    .copyWith(color: ColorConstant.primary))
+                                    .copyWith(
+                                        fontWeight: FontWeight.w400,
+                                        color: ColorConstant.greytext))
+                          ],
+                        ),
+                        Spacer(),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text('Awarded Points',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
+                                        fontWeight: FontWeight.w500,
+                                        color: ColorConstant.greytext)),
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/coin.png',
+                                  alignment: Alignment.center,
+                                ),
+                                // SizedBox(
+                                //   width: width * 0.01,
+                                // ),
+                                Text('hi',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(color: ColorConstant.primary))
+                              ],
+                            )
                           ],
                         )
                       ],
-                    )
-                  ],
-                ),
-              ),
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ],

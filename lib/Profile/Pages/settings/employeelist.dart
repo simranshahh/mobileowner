@@ -29,7 +29,8 @@ class _EmployeeListState extends State<EmployeeList> {
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: displayHeight(context) * 0.07),
+            padding: EdgeInsets.only(
+              top: displayHeight(context) * 0.07),
             child: Row(
               children: [
                 IconButton(

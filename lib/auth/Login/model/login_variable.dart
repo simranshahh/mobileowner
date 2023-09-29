@@ -1,3 +1,4 @@
+
 class LoginInput {
   String? contact;
   String? password;

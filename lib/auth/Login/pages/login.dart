@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_local_variable
+// ignore_for_file: prefer_const_constructors, unused_local_variable, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -74,131 +74,137 @@ class _LoginPageState extends State<LoginPage> {
                       }
                     }),
                 builder: ((runMutation, result) {
-                  return Column(
-                    children: [
-                      Center(
-                        child: Text('Welcome to loyalty App',
-                            textScaleFactor: 1,
-                            style: Theme.of(context).textTheme.displayMedium),
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Center(
-                        child: Text(
-                          'Login to continue ',
-                          style: Theme.of(context).textTheme.bodyLarge,
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: displayWidth(context) * 0.04,
+                      vertical: displayWidth(context) * 0.18,
+                    ),
+                    child: Column(
+                      children: [
+                        Center(
+                          child: Text('Welcome to loyalty App',
+                              textScaleFactor: 1,
+                              style: Theme.of(context).textTheme.displayMedium),
                         ),
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      CustomTextFormField(
-                        hintText: 'Phone Number',
-                        keyboardType: TextInputType.phone,
-                        onSaved: (input) => contact = input,
-                        validator: FormBuilderValidators.compose([
-                          FormBuilderValidators.numeric(),
-                          FormBuilderValidators.required()
-                        ]),
-                        obscureText: false,
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      CustomTextFormField(
-                        hintText: 'Password',
-                        onSaved: (input) => password = input,
-                        validator: FormBuilderValidators.compose([
-                          FormBuilderValidators.required(),
-                          FormBuilderValidators.minLength(4,
-                              errorText:
-                                  "Password should be minimum 4 characters"),
-                        ]),
-                        obscureText: true,
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _obscureText =
-                                  !_obscureText; // Toggle the obscureText value
-                            });
-                          },
-                          child: Icon(
-                            _obscureText
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                            color: ColorConstant.bluesub,
+                        SizedBox(
+                          height: 40,
+                        ),
+                        Center(
+                          child: Text(
+                            'Login to continue ',
+                            style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      ElevatedButton(
-                        onPressed: () async {
-                          // String? deviceToken = await getDeviceToken();
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-                            runMutation(LoginInput(
-                                    contact: contact!,
-                                    password: password!,
-                                    loginType: "OWNER",
-                                    devicetoken: "abc",
-                                    rememberMe: "false")
-                                .toJson());
-                          }
-                        },
-                        style: ButtonStyle(
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(100.0),
-                              ),
-                            ),
-                            backgroundColor: MaterialStatePropertyAll(
-                                ColorConstant.buttoncolor)),
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                              fontSize: 16,
+                        SizedBox(
+                          height: 40,
+                        ),
+                        CustomTextFormField(
+                          hintText: 'Phone Number',
+                          keyboardType: TextInputType.phone,
+                          onSaved: (input) => contact = input,
+                          validator: FormBuilderValidators.compose([
+                            FormBuilderValidators.numeric(),
+                            FormBuilderValidators.required()
+                          ]),
+                          obscureText: false,
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        CustomTextFormField(
+                          hintText: 'Password',
+                          onSaved: (input) => password = input,
+                          validator: FormBuilderValidators.compose([
+                            FormBuilderValidators.required(),
+                            FormBuilderValidators.minLength(4,
+                                errorText:
+                                    "Password should be minimum 4 characters"),
+                          ]),
+                          obscureText: true,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _obscureText =
+                                    !_obscureText; // Toggle the obscureText value
+                              });
+                            },
+                            child: Icon(
+                              _obscureText
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color: ColorConstant.bluesub,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600),
+                            ),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: displayWidth(context) * 0.14,
-                          top: displayHeight(context) * 0.06,
+                        const SizedBox(
+                          height: 40,
                         ),
-                        child: Row(
-                          children: [
-                            Center(
-                              child: Text("Don't have an account?",
-                                  textScaleFactor: 1.0,
+                        ElevatedButton(
+                          onPressed: () async {
+                            // String? deviceToken = await getDeviceToken();
+                            if (_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+                              runMutation(LoginInput(
+                                      contact: contact!,
+                                      password: password!,
+                                      loginType: "OWNER",
+                                      devicetoken: "abc",
+                                      rememberMe: "false")
+                                  .toJson());
+                            }
+                          },
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                ),
+                              ),
+                              backgroundColor: MaterialStatePropertyAll(
+                                  ColorConstant.buttoncolor)),
+                          child: Text(
+                            'Login',
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: ColorConstant.bluesub,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: displayWidth(context) * 0.14,
+                            top: displayHeight(context) * 0.06,
+                          ),
+                          child: Row(
+                            children: [
+                              Center(
+                                child: Text("Don't have an account?",
+                                    textScaleFactor: 1.0,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineSmall),
+                              ),
+                              InkWell(
+                                child: Text(
+                                  'Signup',
+                                  textScaleFactor: 1,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headlineSmall),
-                            ),
-                            InkWell(
-                              child: Text(
-                                'Signup',
-                                textScaleFactor: 1,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall!
-                                    .copyWith(
-                                        color: ColorConstant.buttoncolor,
-                                        fontWeight: FontWeight.w500),
+                                      .headlineSmall!
+                                      .copyWith(
+                                          color: ColorConstant.buttoncolor,
+                                          fontWeight: FontWeight.w500),
+                                ),
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/signup');
+                                },
                               ),
-                              onTap: () {
-                                Navigator.pushNamed(context, '/signup');
-                              },
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   );
 
                   // return Text('hello');
